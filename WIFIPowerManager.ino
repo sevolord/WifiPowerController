@@ -71,11 +71,13 @@ void loop() {
             if (header.indexOf("GET /5/on") >= 0) {
               Serial.println("GPIO 5 on");
               output5State = "on";
-              pinMode(output5, OUTPUT);
+              //pinMode(output5, OUTPUT); //для работы с внешним реле
+              digitalWrite(output5, HIGH); //для работы с реле-модулем для wemos
             } else if (header.indexOf("GET /5/off") >= 0) {
               Serial.println("GPIO 5 off");
               output5State = "off";
-              pinMode(output5, INPUT);
+              //pinMode(output5, INPUT);
+              digitalWrite(output5, LOW);
             } /*else if (header.indexOf("GET /4/on") >= 0) {
               Serial.println("GPIO 4 on");
               output4State = "on";
